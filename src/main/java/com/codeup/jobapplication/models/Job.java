@@ -9,7 +9,7 @@ public class Job {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String  status;
+    private String status;
 
     public Integer getId() {
         return id;

@@ -8,13 +8,13 @@
         <version>2.5.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.codeup</groupId>
+    <groupId>com.personal</groupId>
     <artifactId>jobApplication</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>jobApplication</name>
-    <description>jobApplication</description>
+    <description>Job Application</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -45,6 +45,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>5.1.0</version>
         </dependency>
     </dependencies>
 

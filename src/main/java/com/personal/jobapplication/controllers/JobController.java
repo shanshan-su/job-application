@@ -29,15 +29,15 @@ public class JobController {
         return ResponseEntity.ok(jobs);
     }
 
-    @PostMapping("/jobs/create")
-    @ResponseBody
-    public ResponseEntity<Long> createJob(@RequestParam(name = "name") String name,
-                                          @RequestParam(name = "details") String details) {
-        Job job = new Job(name, "New", details);
-        jobsDao.save(job);
-
-        return ResponseEntity.ok(job.getId());
-    }
+//    @PostMapping("/jobs/create")
+//    @ResponseBody
+//    public ResponseEntity<Long> createJob(@RequestParam(name = "name") String name,
+//                                          @RequestParam(name = "details") String details) {
+//        Job job = new Job(name, "New", details);
+//        jobsDao.save(job);
+//
+//        return ResponseEntity.ok(job.getId());
+//    }
 
     @GetMapping("/jobs/{id}")
     @ResponseBody

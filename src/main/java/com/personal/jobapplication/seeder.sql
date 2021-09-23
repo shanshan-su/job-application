@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS jobs
 (
     id SERIAL,
-    name VARCHAR(50) UNIQUE NOT NULL,
+    name VARCHAR(50) NOT NULL,
     status VARCHAR(20) NOT NULL,
     details TEXT NOT NULL,
     PRIMARY KEY (id)

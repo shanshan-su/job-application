@@ -9,20 +9,15 @@ public class Producer {
     public static String topic = "Kafka_jobs";
 
 
-    private KafkaTemplate<String, String> kafkaTemplate;
     private final KafkaTemplate<String, Job> jobKafkaTemplate;
 
-    public Producer(KafkaTemplate<String, String> kafkaTemplate, KafkaTemplate<String, Job> jobKafkaTemplate) {
-        this.kafkaTemplate = kafkaTemplate;
+    public Producer( KafkaTemplate<String, Job> jobKafkaTemplate) {
         this.jobKafkaTemplate = jobKafkaTemplate;
     }
 
-    // send String message to Kafka
-    public void publishMessageToTopic(String message) {
-        System.out.println("Publishing to topic: " + topic);
-        this.kafkaTemplate.send(topic, message);
+    public KafkaTemplate<String, Job> getJobKafkaTemplate() {
+        return jobKafkaTemplate;
     }
-
 
     // send Job objects to Kafka
     public void publishJobToTopic(Job job) {

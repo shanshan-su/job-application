@@ -13,6 +13,22 @@ public class Job {
     private String status;
     private String details;
 
+    public Job() {
+    }
+
+    public Job(String name, String status, String details) {
+        this.name = name;
+        this.status = status;
+        this.details = details;
+    }
+
+    public Job(Long id, String name, String status, String details) {
+        this.id = id;
+        this.name = name;
+        this.status = status;
+        this.details = details;
+    }
+
     public Long getId() {
         return id;
     }
@@ -43,5 +59,16 @@ public class Job {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Job{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", status='" + status + '\'' +
+                ", details='" + details + '\'' +
+                '}';
     }
 }

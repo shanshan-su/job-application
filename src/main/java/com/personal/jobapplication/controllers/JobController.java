@@ -31,7 +31,9 @@ public class JobController {
 
     @PostMapping("/jobs/create")
     @ResponseBody
-    public ResponseEntity<Long> createJob(@RequestBody Job job) {
+    public ResponseEntity<Long> createJob(@RequestParam(name = "name") String name,
+                                          @RequestParam(name = "details") String details) {
+        Job job = new Job(name, "New", details);
         jobsDao.save(job);
 
         return ResponseEntity.ok(job.getId());

@@ -1,4 +1,4 @@
-package com.codeup.jobapplication;
+package com.personal.jobapplication;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

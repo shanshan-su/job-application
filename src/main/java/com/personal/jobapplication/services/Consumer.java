@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 public class Consumer {
 
     @KafkaListener(topics = "Kafka_test", groupId = "group_id")
-    public void consumeFromTopic(String message) {
+    public void consumeMessageFromTopic(String message) {
         System.out.println("Consumed message: " + message);
     }
 
     @KafkaListener(topics = "Kafka_jobs", groupId = "jobs_json", containerFactory = "jobKafkaListenerContainerFactory")
-    public void consumeJob(Job job) {
+    public void consumeJobFromTopic(Job job) {
         System.out.println("Consumed Job: " + job);
     }
 }

@@ -10,16 +10,12 @@ import java.util.List;
 
 @Controller
 public class JobController {
-    private JobsRepository jobsDao;
+    private final JobsRepository jobsDao;
 
     public JobController(JobsRepository jobsDao) {
         this.jobsDao = jobsDao;
     }
 
-    @GetMapping("/")
-    public String getHomePage() {
-        return "index";
-    }
 
     @GetMapping("/jobs")
     @ResponseBody
@@ -29,21 +25,11 @@ public class JobController {
         return ResponseEntity.ok(jobs);
     }
 
-//    @PostMapping("/jobs/create")
-//    @ResponseBody
-//    public ResponseEntity<Long> createJob(@RequestParam(name = "name") String name,
-//                                          @RequestParam(name = "details") String details) {
-//        Job job = new Job(name, "New", details);
-//        jobsDao.save(job);
-//
-//        return ResponseEntity.ok(job.getId());
-//    }
-
     @GetMapping("/jobs/{id}")
     @ResponseBody
-    public ResponseEntity<String> individualJob(@PathVariable Long id) {
+    public ResponseEntity<Job> individualJob(@PathVariable Long id) {
         Job job = jobsDao.getById(id);
 
-        return ResponseEntity.ok(job.getStatus());
+        return ResponseEntity.ok(job);
     }
 }

@@ -12,8 +12,13 @@ public class Job {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 50)
     private String name;
+
+    @Column(length = 20)
     private String status;
+
+    @Column(columnDefinition="TEXT")
     private String details;
 
     public Job() {

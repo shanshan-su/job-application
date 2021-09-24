@@ -1,7 +1,10 @@
 package com.personal.jobapplication.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Entity
 @Table(name="jobs")
 public class Job {

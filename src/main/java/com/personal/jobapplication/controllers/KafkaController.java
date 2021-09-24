@@ -22,10 +22,10 @@ public class KafkaController {
 
     // send Job objects to Kafka
     @PostMapping(value ="/create-job")
-    public ResponseEntity<Long> sendJobToKafkaTopic(@RequestParam(name = "name") String name,
-                                    @RequestParam(name = "details") String details) {
-        // create the job object and then save to db
-        Job job = new Job(name, "New", details);
+    public ResponseEntity<Long> sendJobToKafkaTopic(@RequestBody Job job) {
+        System.out.println("job.getName() + job.getDetails() = " + job.getName() + job.getDetails());
+        // set job status to new and then save to db
+        job.setStatus("New");
         jobsDao.save(job);
 
         // send job to topic

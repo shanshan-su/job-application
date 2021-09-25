@@ -1,7 +1,10 @@
 package com.personal.jobapplication.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Entity
 @Table(name="jobs")
 public class Job {
@@ -9,8 +12,13 @@ public class Job {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 50)
     private String name;
+
+    @Column(length = 20)
     private String status;
+
+    @Column(columnDefinition="TEXT")
     private String details;
 
     public Job() {

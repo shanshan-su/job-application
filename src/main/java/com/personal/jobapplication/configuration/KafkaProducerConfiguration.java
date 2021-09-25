@@ -18,9 +18,8 @@ import java.util.Map;
 @Configuration
 public class KafkaProducerConfiguration {
 
-    // importing kafka.bootstrap.address
-    @Value("127.0.0.1:9092")
-    private String bootstrapAddress;
+    // bootstrap server url
+    private String bootstrapAddress = "localhost:9092";
 
     // send Job objects to Kafka
     @Bean

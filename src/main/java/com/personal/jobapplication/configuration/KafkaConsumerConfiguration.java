@@ -3,7 +3,6 @@ package com.personal.jobapplication.configuration;
 import com.personal.jobapplication.models.Job;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
@@ -16,9 +15,8 @@ import java.util.Map;
 
 @Configuration
 public class KafkaConsumerConfiguration {
-    // importing kafka.bootstrap.address
-    @Value("127.0.0.1:9092")
-    private String bootstrapAddress;
+    // bootstrap server url
+    private String bootstrapAddress = "localhost:9092";
 
     // consume Job objects from Kafka
     @Bean

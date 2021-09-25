@@ -13,8 +13,6 @@ public class KafkaController {
     private final Producer producer;
     private final JobsRepository jobsDao;
 
-
-
     public KafkaController(Producer producer, JobsRepository jobsDao) {
         this.producer = producer;
         this.jobsDao = jobsDao;
@@ -23,16 +21,15 @@ public class KafkaController {
     // send Job objects to Kafka
     @PostMapping(value ="/create-job")
     public ResponseEntity<Long> sendJobToKafkaTopic(@RequestBody Job job) {
-        System.out.println("job.getName() + job.getDetails() = " + job.getName() + job.getDetails());
         // set job status to new and then save to db
         job.setStatus("New");
         jobsDao.save(job);
+        System.out.println("job.toString() = " + job.toString());
 
         // send job to topic
         producer.publishJobToTopic(job);
 
         // return job id
         return ResponseEntity.ok(job.getId());
-
     }
 }

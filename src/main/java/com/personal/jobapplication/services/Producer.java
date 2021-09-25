@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 public class Producer {
     public static String topic = "Kafka_jobs";
 
-
     private final KafkaTemplate<String, Job> jobKafkaTemplate;
 
     public Producer( KafkaTemplate<String, Job> jobKafkaTemplate) {

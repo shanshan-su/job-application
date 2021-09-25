@@ -23,29 +23,16 @@ public class Consumer {
         // generate a random int between 1 and 5
         int randomInt = new Random().nextInt(5) + 1;
 
+        // change status to In-Progress
+        job.setStatus("In-Progress");
+        jobsDao.save(job);
 
-        // if job status is new, consume it
-        if (job.getStatus().equalsIgnoreCase("New")) {
-            // change status to In-Progress
-            job.setStatus("In-Progress");
-            jobsDao.save(job);
+        // put the application to sleep(mimic working on job)
+        TimeUnit.SECONDS.sleep(randomInt);
+        job.setStatus("Done");
+        jobsDao.save(job);
 
-            // put the application to sleep(mimic working on job)
-            TimeUnit.MINUTES.sleep(randomInt);
-            job.setStatus("Done");
-            jobsDao.save(job);
-
-            System.out.println("Consumed Job: " + job);
-        } else if (job.getStatus().equalsIgnoreCase("In-Progress")) {
-            System.out.println("Consuming Job: " + job);
-            // put the application to sleep(mimic working on job)
-            TimeUnit.MINUTES.sleep(randomInt);
-            job.setStatus("Done");
-            jobsDao.save(job);
-            System.out.println("Consumed Job: " + job);
-        } else {
-            System.out.println("Job is done, no need to consume.");
-        }
+        System.out.println("Consumed Job: " + job);
     }
 
 }
